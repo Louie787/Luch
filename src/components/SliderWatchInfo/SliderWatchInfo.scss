@@ -1,0 +1,66 @@
+.slider-watch-info {
+  width: 20.625rem;
+
+  &__flex-line:not(:last-of-type) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  &__flex-line:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1.25rem 0 0 20%;
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__for {
+    font-size: 0.75rem;
+    font-weight: 200;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__collection {
+    font-size: 1.75rem;
+    font-weight: 200;
+    margin: 0;
+    width: 80%;
+  }
+
+  &__categories {
+    display: flex;
+    font-size: 0.6875rem;
+    color: var(--secondary-color);
+    margin: 1rem 0 1.25rem 20%;
+
+    & span:not(:last-of-type) {
+      padding-right: 0.5rem;
+    }
+  }
+
+  &__descr {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    width: 80%;
+    margin: 0;
+  }
+
+  & .btn_bordered {
+    &::before,
+    &::after {
+      background: var(--header-bg-color);
+    }
+  }
+
+  & .favorites-button {
+    margin-left: 1.25rem;
+  }
+}

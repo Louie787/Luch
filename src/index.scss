@@ -1,0 +1,58 @@
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --header-bg-color: #f1f1f1;
+  --primary-color: #13191d;
+  --secondary-color: #5b6d7a;
+  --line-color: #e2e2e2;
+  --sidebar-color: #ffffff;
+  --watch-card-bg-color: linear-gradient(120deg, var(--bg-color), #e6e6e6);
+  --watch-card-exclusive-bg-color: linear-gradient(
+    145deg,
+    #5b6d7a,
+    #172228 60%
+  );
+  --favorites-hover-bg-color: #e4e4e4;
+  --btn-gradient: linear-gradient(120deg, #526d7c, #13191d);
+  --btn-gradient-hover: linear-gradient(120deg, #13191d, #526d7c);
+  --slider-numbers-color: #cccccc;
+}
+
+html[data-theme="dark"] {
+  --bg-color: #13191d;
+  --header-bg-color: #13191d;
+  --primary-color: #ffffff;
+  --line-color: #1c2629;
+  --sidebar-color: #161d23;
+  --watch-card-bg-color: linear-gradient(120deg, var(--bg-color), #172228);
+  --favorites-hover-bg-color: #10171b;
+  --btn-gradient: linear-gradient(120deg, #e6e6e6, #7c7c7c);
+  --btn-gradient-hover: linear-gradient(120deg, #7c7c7c, #e6e6e6);
+  --slider-numbers-color: var(--secondary-color);
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.btn {
+  display: inline-block;
+  width: 6.875rem;
+  height: 1.875rem;
+  font-size: 0.625rem;
+  line-height: 1.875rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 1.5em;
+  cursor: pointer;
+}

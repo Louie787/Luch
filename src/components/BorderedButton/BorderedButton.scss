@@ -1,0 +1,33 @@
+.btn_bordered {
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 60%;
+    height: 2px;
+    background: var(--bg-color);
+    position: absolute;
+    transition: width 0.2s ease-in;
+  }
+
+  &::before {
+    top: -1px;
+    right: 0;
+  }
+
+  &::after {
+    bottom: -1px;
+    left: 0;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      width: 0;
+    }
+  }
+}
