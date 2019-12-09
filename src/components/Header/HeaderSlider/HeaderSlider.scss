@@ -12,6 +12,13 @@
     &:focus {
       outline: none;
     }
+
+    & .btn_bordered {
+      &::before,
+      &::after {
+        background: var(--header-bg-color) !important;
+      }
+    }
   }
 
   &__img {

@@ -1,0 +1,29 @@
+.collection-link {
+  display: flex;
+  align-items: center;
+  padding-left: 6.6rem;
+  background: linear-gradient(145deg, #172228 20%, #2e3b43, #5b6d7a);
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 200;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    background: #19242a;
+    margin-left: auto;
+
+    &:hover svg {
+      fill: var(--secondary-color);
+    }
+
+    & svg {
+      width: 20%;
+      transform: rotate(180deg);
+      transition: 0.1s ease-in;
+    }
+  }
+}

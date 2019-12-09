@@ -4,7 +4,7 @@ import "./BorderedButton.scss";
 const BorderedButton = props => {
   return (
     <a href="#" className=" btn btn_bordered">
-      See more
+      {props.text || "See more"}
     </a>
   );
 };

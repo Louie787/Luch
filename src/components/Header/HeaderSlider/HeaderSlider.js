@@ -52,7 +52,7 @@ class HeaderSlider extends Component {
   render() {
     const settings1 = {
       dots: false,
-      // autoplay: true,
+      autoplay: true,
       speed: 500,
       autoplaySpeed: 4000,
       slidesToShow: 1,
@@ -78,7 +78,7 @@ class HeaderSlider extends Component {
       <div className="header-slider">
         <Slider {...settings1} ref={slider => (this.slider1 = slider)}>
           <div className="header-slider__item">
-            <SliderWatchInfo />
+            <SliderWatchInfo showCategories={true} />
             <img
               src="images/watch-1.png"
               alt=""
@@ -86,7 +86,7 @@ class HeaderSlider extends Component {
             />
           </div>
           <div className="header-slider__item">
-            <SliderWatchInfo />
+            <SliderWatchInfo showCategories={true} />
             <img
               src="images/watch-2.png"
               alt=""
@@ -94,7 +94,7 @@ class HeaderSlider extends Component {
             />
           </div>
           <div className="header-slider__item">
-            <SliderWatchInfo />
+            <SliderWatchInfo showCategories={true} />
             <img
               src="images/watch-3.png"
               alt=""
@@ -102,7 +102,7 @@ class HeaderSlider extends Component {
             />
           </div>
           <div className="header-slider__item">
-            <SliderWatchInfo />
+            <SliderWatchInfo showCategories={true} />
             <img
               src="images/watch-4.png"
               alt=""
@@ -110,7 +110,7 @@ class HeaderSlider extends Component {
             />
           </div>
           <div className="header-slider__item">
-            <SliderWatchInfo />
+            <SliderWatchInfo showCategories={true} />
             <img
               src="images/watch-3.png"
               alt=""
