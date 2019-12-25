@@ -1,6 +1,8 @@
 import React from "react";
 import "./HomePage.scss";
 import Slider from "react-slick";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Header from "./../../components/Header/Header";
 import HeaderSlider from "./../../components/Header/HeaderSlider/HeaderSlider";
 import CollectionLink from "./../../components/CollectionLink/CollectionLink";
@@ -38,6 +40,9 @@ const SuggestionSliderNext = ({ onClick }) => {
 };
 
 const HomePage = () => {
+  const allWatches = useSelector(state => state.appReducer.watches);
+  const hitWatches = allWatches.filter(item => item.hit);
+
   const settings = {
     dots: false,
     autoplay: true,
@@ -61,123 +66,63 @@ const HomePage = () => {
             MINSK <span>Watch Factory</span>
           </>
         }
-        mainContent={<HeaderSlider />}
+        mainContent={<HeaderSlider watches={hitWatches} />}
       />
       <section className="suggestions">
         <div className="suggestion-slider">
           <Slider {...settings}>
-            <div className="suggestion-slider__item">
-              <div className="suggestion-slider__item-wrapper">
-                <CollectionLink
-                  text={
-                    <>
-                      Collection&nbsp;<b>2019</b>
-                    </>
-                  }
-                />
-                <div className="suggestion-slider__item-info">
-                  <SliderWatchInfo categories={false} />
+            {hitWatches.map((watch, index) => (
+              <div className="suggestion-slider__item" key={watch.id}>
+                <div className="suggestion-slider__item-wrapper">
+                  <CollectionLink
+                    text={
+                      <>
+                        Collection&nbsp;<b>{watch.collection}</b>
+                      </>
+                    }
+                    link={watch.collection}
+                  />
+                  <div className="suggestion-slider__item-info">
+                    <SliderWatchInfo
+                      showCategories={false}
+                      price={watch.price}
+                      collection={watch.collection}
+                      type={watch.type}
+                      descr={watch.descr}
+                      id={watch.id}
+                    />
+                  </div>
                 </div>
+                <div
+                  className="suggestion-slider__item-img"
+                  style={{
+                    backgroundImage: `url(images/img-${index + 1}.jpg)`
+                  }}
+                ></div>
               </div>
-              <div
-                className="suggestion-slider__item-img"
-                style={{ backgroundImage: "url(images/img-6.jpg)" }}
-              ></div>
-            </div>
-            <div className="suggestion-slider__item">
-              <div className="suggestion-slider__item-wrapper">
-                <CollectionLink
-                  text={
-                    <>
-                      Collection&nbsp;<b>2019</b>
-                    </>
-                  }
-                />
-                <div className="suggestion-slider__item-info">
-                  <SliderWatchInfo categories={false} />
-                </div>
-              </div>
-              <div
-                className="suggestion-slider__item-img"
-                style={{ backgroundImage: "url(images/img-5.jpg)" }}
-              ></div>
-            </div>
-            <div className="suggestion-slider__item">
-              <div className="suggestion-slider__item-wrapper">
-                <CollectionLink
-                  text={
-                    <>
-                      Collection&nbsp;<b>2019</b>
-                    </>
-                  }
-                />
-                <div className="suggestion-slider__item-info">
-                  <SliderWatchInfo categories={false} />
-                </div>
-              </div>
-              <div
-                className="suggestion-slider__item-img"
-                style={{ backgroundImage: "url(images/img-12.jpg)" }}
-              ></div>
-            </div>
-            <div className="suggestion-slider__item">
-              <div className="suggestion-slider__item-wrapper">
-                <CollectionLink
-                  text={
-                    <>
-                      Collection&nbsp;<b>2019</b>
-                    </>
-                  }
-                />
-                <div className="suggestion-slider__item-info">
-                  <SliderWatchInfo categories={false} />
-                </div>
-              </div>
-              <div
-                className="suggestion-slider__item-img"
-                style={{ backgroundImage: "url(images/img-16.jpg)" }}
-              ></div>
-            </div>
-            <div className="suggestion-slider__item">
-              <div className="suggestion-slider__item-wrapper">
-                <CollectionLink
-                  text={
-                    <>
-                      Collection&nbsp;<b>2019</b>
-                    </>
-                  }
-                />
-                <div className="suggestion-slider__item-info">
-                  <SliderWatchInfo categories={false} />
-                </div>
-              </div>
-              <div
-                className="suggestion-slider__item-img"
-                style={{ backgroundImage: "url(images/img-19.jpg)" }}
-              ></div>
-            </div>
+            ))}
           </Slider>
         </div>
         <div className="suggestions__links">
-          <a
-            href="#"
+          <Link
+            to="/products/ladies"
             className="suggestions__link"
-            style={{ backgroundImage: "url(images/img-3.jpg)" }}
+            style={{ backgroundImage: "url(images/img-6.jpg)" }}
           >
             <span>Ladies' Watches</span>
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/products/mens"
             className="suggestions__link"
-            style={{ backgroundImage: "url(images/img-8.jpg)" }}
+            style={{ backgroundImage: "url(images/img-7.jpg)" }}
           >
             <span>Men's Watches</span>
-          </a>
+          </Link>
         </div>
         <div className="suggestions__collection">
           <div
             className="suggestions__collection-img"
-            style={{ backgroundImage: "url(images/img-26.jpg)" }}
+            style={{ backgroundImage: "url(images/img-8.jpg)" }}
           ></div>
           <div className="suggestions__collection-wrapper">
             <div className="suggestions__collection-title">
@@ -199,7 +144,7 @@ const HomePage = () => {
               The heart of this watch is a highly reliable Japanese quartz
               movement (Miyota).
             </p>
-            <BorderedButton text={"Watch Collection"} />
+            <BorderedButton text={"Watch Collection"} link={"/products"} />
           </div>
         </div>
       </section>

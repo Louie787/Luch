@@ -9,27 +9,24 @@ const SliderWatchInfo = props => {
   return (
     <div className="slider-watch-info">
       <div className="slider-watch-info__flex-line">
-        <span className="slider-watch-info__price">&#36;559</span>
-        <h4 className="slider-watch-info__collection">Grodno</h4>
+        <span className="slider-watch-info__price">&#36;{props.price}</span>
+        <h4 className="slider-watch-info__collection">{props.collection}</h4>
       </div>
       {props.showCategories && (
         <p className="slider-watch-info__categories">
-          <span>Quartz movement</span>
-          <span>Mineral glass</span>
-          <span>Genuine leather strap</span>
+          <span>{props.movement} movement</span>
+          <span>{props.glass} glass</span>
+          <span>{props.strap} strap</span>
         </p>
       )}
       <div className="slider-watch-info__flex-line">
         <div className="slider-watch-info__for">
-          for <span>him</span>
+          for <span>{props.type === "Mens" ? "him" : "her"}</span>
         </div>
-        <p className="slider-watch-info__descr">
-          The heart of this watch is a highly reliable Japanese quartz movement
-          (Miyota).
-        </p>
+        <p className="slider-watch-info__descr">{props.descr}</p>
       </div>
       <div className="slider-watch-info__flex-line">
-        <BorderedButton />
+        <BorderedButton link={`/product/${props.id}`} />
         <FavoritesButton />
       </div>
     </div>
@@ -37,7 +34,15 @@ const SliderWatchInfo = props => {
 };
 
 SliderWatchInfo.propTypes = {
-  showCategories: PropTypes.bool
+  showCategories: PropTypes.bool,
+  price: PropTypes.number,
+  collection: PropTypes.string,
+  movement: PropTypes.string,
+  glass: PropTypes.string,
+  strap: PropTypes.string,
+  type: PropTypes.string,
+  descr: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default SliderWatchInfo;

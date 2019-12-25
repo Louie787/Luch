@@ -34,13 +34,10 @@ const HeaderSliderNext = ({ onClick }) => {
 };
 
 class HeaderSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nav1: null,
-      nav2: null
-    };
-  }
+  state = {
+    nav1: null,
+    nav2: null
+  };
 
   componentDidMount() {
     this.setState({
@@ -48,12 +45,14 @@ class HeaderSlider extends Component {
       nav2: this.slider2
     });
   }
+  componentDidUpdate() {
+    this.slider1.slickGoTo(0);
+  }
 
   render() {
     const settings1 = {
       dots: false,
       autoplay: true,
-      speed: 500,
       autoplaySpeed: 4000,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -66,7 +65,6 @@ class HeaderSlider extends Component {
     const settings2 = {
       dots: false,
       arrows: false,
-      speed: 500,
       slidesToShow: 3,
       slidesToScroll: 1,
       centerMode: true,
@@ -77,46 +75,22 @@ class HeaderSlider extends Component {
     return (
       <div className="header-slider">
         <Slider {...settings1} ref={slider => (this.slider1 = slider)}>
-          <div className="header-slider__item">
-            <SliderWatchInfo showCategories={true} />
-            <img
-              src="images/watch-1.png"
-              alt=""
-              className="header-slider__img"
-            />
-          </div>
-          <div className="header-slider__item">
-            <SliderWatchInfo showCategories={true} />
-            <img
-              src="images/watch-2.png"
-              alt=""
-              className="header-slider__img"
-            />
-          </div>
-          <div className="header-slider__item">
-            <SliderWatchInfo showCategories={true} />
-            <img
-              src="images/watch-3.png"
-              alt=""
-              className="header-slider__img"
-            />
-          </div>
-          <div className="header-slider__item">
-            <SliderWatchInfo showCategories={true} />
-            <img
-              src="images/watch-4.png"
-              alt=""
-              className="header-slider__img"
-            />
-          </div>
-          <div className="header-slider__item">
-            <SliderWatchInfo showCategories={true} />
-            <img
-              src="images/watch-3.png"
-              alt=""
-              className="header-slider__img"
-            />
-          </div>
+          {this.props.watches.map(watch => (
+            <div className="header-slider__item" key={watch.id}>
+              <SliderWatchInfo
+                showCategories={true}
+                price={watch.price}
+                collection={watch.collection}
+                movement={watch.movement}
+                glass={watch.glass}
+                strap={watch.strap}
+                type={watch.type}
+                descr={watch.descr}
+                id={watch.id}
+              />
+              <img src={watch.img[1]} alt="" className="header-slider__img" />
+            </div>
+          ))}
         </Slider>
         <div className="header-slider__arc">
           <svg

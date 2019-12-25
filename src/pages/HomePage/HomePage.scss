@@ -1,4 +1,7 @@
 .suggestion-slider {
+  width: 100%;
+  height: 30rem;
+
   &__item {
     width: 100%;
     height: 30rem;
@@ -61,6 +64,10 @@
     & svg {
       transform: rotate(180deg);
     }
+  }
+
+  & .slick-current {
+    z-index: 1;
   }
 }
 

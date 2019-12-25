@@ -1,29 +1,20 @@
 .logo-loader {
-  &-enter {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: var(--bg-color);
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--bg-color);
+  z-index: 100;
 
-    & .logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40vw;
-      cursor: default;
-
-      & svg {
-        fill: var(--primary-color);
-        stroke: none;
-        stroke-dasharray: 2331;
-        opacity: 1;
-        animation: logo-anim-in 3.2s forwards ease-in-out;
-      }
-    }
+  & svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    stroke: none;
+    stroke-dasharray: 2331;
   }
 
   &-enter-active {
@@ -31,8 +22,8 @@
     transition: 0.2s cubic-bezier(0.04, 0.01, 0.51, 0.02);
     transition-delay: 2.9s;
 
-    & .logo {
-      position: absolute;
+    & svg {
+      animation: logo-anim-in 3.2s forwards ease-in-out;
       top: 0;
       left: 0;
       width: 5.5rem;
@@ -42,13 +33,7 @@
   }
 
   &-enter-done {
-    & .logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5.5rem;
-      transform: translate(1.875rem, 1.875rem) !important;
-    }
+    display: none;
   }
 
   // Logo animation

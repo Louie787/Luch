@@ -1,7 +1,8 @@
-import CHANGE_MODE from "../actions/types";
+import { CHANGE_MODE, GET_WATCHES } from "../actions/types";
 
 const initialState = {
-  appMode: "light"
+  appMode: "light",
+  watches: []
 };
 
 const appReducer = (state = initialState, { type, payload }) => {
@@ -10,6 +11,11 @@ const appReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         appMode: payload
+      };
+    case GET_WATCHES:
+      return {
+        ...state,
+        watches: payload
       };
     default:
       return state;

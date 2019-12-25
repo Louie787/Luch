@@ -1,11 +1,12 @@
 import React from "react";
 import "./GradientButton.scss";
+import { Link } from "react-router-dom";
 
 const GradientButton = props => {
   return (
-    <a href="#" className="btn btn_gradient">
-      <span>See more</span>
-    </a>
+    <Link to={props.link} className="btn btn_gradient">
+      <span>{props.text || "See more"}</span>
+    </Link>
   );
 };
 

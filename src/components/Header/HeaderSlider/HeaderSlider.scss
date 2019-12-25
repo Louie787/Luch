@@ -1,5 +1,6 @@
 .header-slider {
   width: 100%;
+  height: 65vh;
   padding-right: 6%;
   position: relative;
 
@@ -94,5 +95,9 @@
     &:focus {
       outline: none;
     }
+  }
+
+  & .slick-current {
+    z-index: 1;
   }
 }

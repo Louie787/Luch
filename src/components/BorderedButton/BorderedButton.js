@@ -1,11 +1,12 @@
 import React from "react";
 import "./BorderedButton.scss";
+import { Link } from "react-router-dom";
 
 const BorderedButton = props => {
   return (
-    <a href="#" className=" btn btn_bordered">
+    <Link to={props.link} className="btn btn_bordered">
       {props.text || "See more"}
-    </a>
+    </Link>
   );
 };
 

@@ -3,9 +3,9 @@ import "./Header.scss";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
-import changeMode from "../../store/actions/app";
+import { changeMode } from "../../store/actions/app";
 
-import LogoLoader from "../LogoLoader/LogoLoader";
+import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
 import Cart from "../Cart/Cart";
 import Favorites from "../Favorites/Favorites";
@@ -59,7 +59,7 @@ const Header = props => {
   return (
     <header className="header" style={{ background: props.headerBg }}>
       <div className="header__left">
-        <LogoLoader />
+        <Logo />
         {props.hasLine && <span className="header__left-line"></span>}
         <span className="header__left-text" ref={leftText}>
           {props.leftText}
