@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useDispatch } from "react-redux";
 import { changeMode, getWatches } from "./store/actions/app";
+import { getFavorites } from "./store/actions/favorites";
 import HomePage from "./pages/HomePage/HomePage";
 import BlogPage from "./pages/BlogPage/BlogPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";
@@ -21,6 +22,7 @@ const App = () => {
 
     dispatch(changeMode(appMode));
     dispatch(getWatches());
+    dispatch(getFavorites());
   }, []);
 
   return (

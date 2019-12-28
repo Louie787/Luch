@@ -1,10 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./WatchCard.scss";
+import PropTypes from "prop-types";
 
 import BorderedButton from "../BorderedButton/BorderedButton";
 import GradientButton from "../GradientButton/GradientButton";
 import FavoritesButton from "../FavoritesButton/FavoritesButton";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 const WatchCard = props => {
   return (
@@ -14,37 +15,37 @@ const WatchCard = props => {
       }
     >
       <div className="watch-card__wrapper">
-        <img src="images/watch-1.png" alt="" className="watch-card__img" />
+        <img src={props.watchObj.img[0]} alt="" className="watch-card__img" />
       </div>
       <div className="watch-card__wrapper">
         <div className="watch-card__flex-line">
           <div className="watch-card__for">
-            for <span>him</span>
+            for <span>{props.watchObj.type === "Mens" ? "him" : "her"}</span>
           </div>
-          <FavoritesButton />
+          {props.delBtn ? (
+            <DeleteButton delFrom={props.component} delID={props.watchObj.id} />
+          ) : (
+            <FavoritesButton watchID={props.watchObj.id} />
+          )}
         </div>
-        <h4 className="watch-card__collection">Grodno</h4>
+        <h4 className="watch-card__collection">{props.watchObj.collection}</h4>
         {props.exclusive && (
           <p className="watch-card__categories">
-            <span>Quartz movement</span>
-            <span>Mineral glass</span>
-            <span>Genuine leather strap</span>
+            <span>{props.watchObj.movement} movement</span>
+            <span>{props.watchObj.glass} glass</span>
+            <span>{props.watchObj.strap} strap</span>
           </p>
         )}
-
-        <p className="watch-card__descr">
-          The heart of this watch is a highly reliable Japanese quartz movement
-          (Miyota).
-        </p>
+        <p className="watch-card__descr">{props.watchObj.descr}</p>
         <div className="watch-card__flex-line">
           {props.exclusive ? (
-            <BorderedButton />
+            <BorderedButton link={`/product/${props.watchObj.id}`} />
           ) : (
             <div className="watch-card__btn-wrapper">
-              <GradientButton />
+              <GradientButton link={`/product/${props.watchObj.id}`} />
             </div>
           )}
-          <span className="watch-card__price">&#36;559</span>
+          <span className="watch-card__price">&#36;{props.watchObj.price}</span>
         </div>
       </div>
     </div>
@@ -52,7 +53,17 @@ const WatchCard = props => {
 };
 
 WatchCard.propTypes = {
-  exclusive: PropTypes.bool
+  exclusive: PropTypes.bool,
+  price: PropTypes.number,
+  collection: PropTypes.string,
+  movement: PropTypes.string,
+  glass: PropTypes.string,
+  strap: PropTypes.string,
+  type: PropTypes.string,
+  descr: PropTypes.string,
+  id: PropTypes.string,
+  delBtn: PropTypes.bool,
+  component: PropTypes.oneOf(["favorites", "cart"])
 };
 
 export default WatchCard;

@@ -77,17 +77,7 @@ class HeaderSlider extends Component {
         <Slider {...settings1} ref={slider => (this.slider1 = slider)}>
           {this.props.watches.map(watch => (
             <div className="header-slider__item" key={watch.id}>
-              <SliderWatchInfo
-                showCategories={true}
-                price={watch.price}
-                collection={watch.collection}
-                movement={watch.movement}
-                glass={watch.glass}
-                strap={watch.strap}
-                type={watch.type}
-                descr={watch.descr}
-                id={watch.id}
-              />
+              <SliderWatchInfo showCategories={true} watchObj={watch} />
               <img src={watch.img[1]} alt="" className="header-slider__img" />
             </div>
           ))}

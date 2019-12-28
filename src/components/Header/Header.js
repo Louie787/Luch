@@ -88,13 +88,26 @@ const Header = props => {
                 ? "hamburger hamburger_active"
                 : "hamburger"
             }
+            title={
+              sidebarComponentName === "Menu" && sidebarIsVisible
+                ? "Close menu"
+                : "Open menu"
+            }
             onClick={() => showSidebar("Menu")}
           >
             <div className="hamburger__line"></div>
             <div className="hamburger__line"></div>
             <div className="hamburger__line"></div>
           </div>
-          <div className="sidebar__icon" onClick={() => showSidebar("Cart")}>
+          <div
+            className="sidebar__icon"
+            title={
+              sidebarComponentName === "Cart" && sidebarIsVisible
+                ? "Close cart"
+                : "Open cart"
+            }
+            onClick={() => showSidebar("Cart")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.8rem"
@@ -113,6 +126,11 @@ const Header = props => {
           </div>
           <div
             className="sidebar__icon"
+            title={
+              sidebarComponentName === "Favorites" && sidebarIsVisible
+                ? "Close favorites"
+                : "Open favorites"
+            }
             onClick={() => showSidebar("Favorites")}
           >
             <svg
@@ -127,7 +145,15 @@ const Header = props => {
               <path d="M 16 8 L 16 72 L 48 56 L 80 72 L 80 8 Z M 16 8 " />
             </svg>
           </div>
-          <div className="sidebar__icon" onClick={() => showSidebar("Search")}>
+          <div
+            className="sidebar__icon"
+            title={
+              sidebarComponentName === "Search" && sidebarIsVisible
+                ? "Close search"
+                : "Open search"
+            }
+            onClick={() => showSidebar("Search")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.3rem"
@@ -143,6 +169,7 @@ const Header = props => {
         <div className="sidebar__icons-wrapper">
           <div
             className="sidebar__icon"
+            title={appMode === "light" ? "Set dark mode" : "Set light mode"}
             onClick={() =>
               dispatch(changeMode(appMode === "light" ? "dark" : "light"))
             }

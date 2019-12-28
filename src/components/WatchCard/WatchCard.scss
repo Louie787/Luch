@@ -4,16 +4,17 @@
   width: 22.5rem;
   height: 12.5rem;
   padding: 1.25rem;
+  margin: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: box-shadow 0.3s;
 
   &:hover {
-    box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.9375rem rgba(0, 0, 0, 0.15);
 
     & .watch-card__img {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
 
     & .watch-card__btn-wrapper {

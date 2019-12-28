@@ -1,2 +1,5 @@
 export const CHANGE_MODE = "CHANGE_MODE";
 export const GET_WATCHES = "GET_WATCHES";
+export const GET_FAVORITES = "GET_FAVORITES";
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
+export const DEL_FROM_FAVORITES = "DEL_FROM_FAVORITES";

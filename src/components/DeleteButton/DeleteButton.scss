@@ -1,0 +1,26 @@
+.delete-button {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--favorites-hover-bg-color);
+  }
+
+  &__line {
+    width: 55%;
+    height: 1px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    &:first-of-type {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

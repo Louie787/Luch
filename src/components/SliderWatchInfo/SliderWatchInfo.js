@@ -9,25 +9,29 @@ const SliderWatchInfo = props => {
   return (
     <div className="slider-watch-info">
       <div className="slider-watch-info__flex-line">
-        <span className="slider-watch-info__price">&#36;{props.price}</span>
-        <h4 className="slider-watch-info__collection">{props.collection}</h4>
+        <span className="slider-watch-info__price">
+          &#36;{props.watchObj.price}
+        </span>
+        <h4 className="slider-watch-info__collection">
+          {props.watchObj.collection}
+        </h4>
       </div>
       {props.showCategories && (
         <p className="slider-watch-info__categories">
-          <span>{props.movement} movement</span>
-          <span>{props.glass} glass</span>
-          <span>{props.strap} strap</span>
+          <span>{props.watchObj.movement} movement</span>
+          <span>{props.watchObj.glass} glass</span>
+          <span>{props.watchObj.strap} strap</span>
         </p>
       )}
       <div className="slider-watch-info__flex-line">
         <div className="slider-watch-info__for">
-          for <span>{props.type === "Mens" ? "him" : "her"}</span>
+          for <span>{props.watchObj.type === "Mens" ? "him" : "her"}</span>
         </div>
-        <p className="slider-watch-info__descr">{props.descr}</p>
+        <p className="slider-watch-info__descr">{props.watchObj.descr}</p>
       </div>
       <div className="slider-watch-info__flex-line">
-        <BorderedButton link={`/product/${props.id}`} />
-        <FavoritesButton />
+        <BorderedButton link={`/product/${props.watchObj.id}`} />
+        <FavoritesButton watchID={props.watchObj.id} />
       </div>
     </div>
   );

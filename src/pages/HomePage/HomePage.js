@@ -83,14 +83,7 @@ const HomePage = () => {
                     link={watch.collection}
                   />
                   <div className="suggestion-slider__item-info">
-                    <SliderWatchInfo
-                      showCategories={false}
-                      price={watch.price}
-                      collection={watch.collection}
-                      type={watch.type}
-                      descr={watch.descr}
-                      id={watch.id}
-                    />
+                    <SliderWatchInfo showCategories={false} watchObj={watch} />
                   </div>
                 </div>
                 <div
