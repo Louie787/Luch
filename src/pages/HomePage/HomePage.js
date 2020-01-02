@@ -8,6 +8,8 @@ import HeaderSlider from "./../../components/Header/HeaderSlider/HeaderSlider";
 import CollectionLink from "./../../components/CollectionLink/CollectionLink";
 import SliderWatchInfo from "./../../components/SliderWatchInfo/SliderWatchInfo";
 import BorderedButton from "../../components/BorderedButton/BorderedButton";
+import WatchCard from "./../../components/WatchCard/WatchCard";
+import Footer from "./../../components/Footer/Footer";
 
 const SuggestionSliderPrev = ({ onClick }) => {
   return (
@@ -77,7 +79,7 @@ const HomePage = () => {
                   <CollectionLink
                     text={
                       <>
-                        Collection&nbsp;<b>{watch.collection}</b>
+                        Collection <b>{watch.collection}</b>
                       </>
                     }
                     link={watch.collection}
@@ -141,6 +143,37 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <section className="watches-grid">
+        <h2 className="section-title">
+          Collection <span>2019</span>
+        </h2>
+        <div className="watches-grid__wrap">
+          {hitWatches.map((watch, index) => {
+            return index > 3 ? null : (
+              <WatchCard
+                watchObj={watch}
+                exclusive={true}
+                delBtn={false}
+                key={watch.id}
+              />
+            );
+          })}
+        </div>
+        <div className="watches-grid__wrap">
+          {allWatches.map((watch, index) => {
+            return index > 4 ? null : (
+              <WatchCard
+                watchObj={watch}
+                exclusive={false}
+                delBtn={false}
+                key={watch.id}
+              />
+            );
+          })}
+          <CollectionLink text={<>View full collection</>} link={""} />
+        </div>
+      </section>
+      <Footer />
     </>
   );
 };

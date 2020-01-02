@@ -90,8 +90,8 @@ const Header = props => {
             }
             title={
               sidebarComponentName === "Menu" && sidebarIsVisible
-                ? "Close menu"
-                : "Open menu"
+                ? "Hide menu"
+                : "Show menu"
             }
             onClick={() => showSidebar("Menu")}
           >
@@ -103,8 +103,8 @@ const Header = props => {
             className="sidebar__icon"
             title={
               sidebarComponentName === "Cart" && sidebarIsVisible
-                ? "Close cart"
-                : "Open cart"
+                ? "Hide cart"
+                : "Show cart"
             }
             onClick={() => showSidebar("Cart")}
           >
@@ -128,8 +128,8 @@ const Header = props => {
             className="sidebar__icon"
             title={
               sidebarComponentName === "Favorites" && sidebarIsVisible
-                ? "Close favorites"
-                : "Open favorites"
+                ? "Hide favorites"
+                : "Show favorites"
             }
             onClick={() => showSidebar("Favorites")}
           >
@@ -149,8 +149,8 @@ const Header = props => {
             className="sidebar__icon"
             title={
               sidebarComponentName === "Search" && sidebarIsVisible
-                ? "Close search"
-                : "Open search"
+                ? "Hide search"
+                : "Show search"
             }
             onClick={() => showSidebar("Search")}
           >

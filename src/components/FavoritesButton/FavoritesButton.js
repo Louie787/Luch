@@ -25,7 +25,7 @@ const FavoritesButton = props => {
   return (
     <div
       className="favorites-button"
-      title="Add to Favorites"
+      title={isFavorite ? "Delete from favorites" : "Add to favorites"}
       onClick={() => handleClick()}
     >
       <svg

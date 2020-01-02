@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CollectionLink = props => {
   return (
     <div className="collection-link">
-      {props.text}
+      <p className="collection-link__text">{props.text}</p>
       <Link
         to={`/products/${props.link.toLowerCase()}`}
         className="collection-link__link"

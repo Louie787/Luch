@@ -22,7 +22,7 @@
       height: 50%;
       display: flex;
       align-items: center;
-      padding-left: 2.5rem;
+      padding-left: 6vw;
     }
 
     &-img {
@@ -121,7 +121,7 @@
       width: 50%;
       height: inherit;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: 160%;
       background-position: center center;
     }
 
@@ -153,6 +153,37 @@
 
     & .btn_bordered {
       margin-left: 30%;
+    }
+  }
+}
+
+.watches-grid {
+  padding: 0 4rem;
+
+  &__wrap {
+    margin: 0 -0.625rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &:first-of-type {
+      max-height: 380px;
+      overflow: hidden;
+    }
+  }
+
+  & .watch-card:not(.watch-card_exclusive) {
+    width: 31%;
+  }
+
+  & .collection-link {
+    width: 31%;
+    margin: 0.625rem;
+    border-radius: 0.3125rem;
+
+    &__link {
+      border-top-right-radius: 0.3125rem;
+      border-bottom-right-radius: 0.3125rem;
     }
   }
 }

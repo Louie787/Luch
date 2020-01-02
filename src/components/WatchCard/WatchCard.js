@@ -54,14 +54,7 @@ const WatchCard = props => {
 
 WatchCard.propTypes = {
   exclusive: PropTypes.bool,
-  price: PropTypes.number,
-  collection: PropTypes.string,
-  movement: PropTypes.string,
-  glass: PropTypes.string,
-  strap: PropTypes.string,
-  type: PropTypes.string,
-  descr: PropTypes.string,
-  id: PropTypes.string,
+  watchObj: PropTypes.object,
   delBtn: PropTypes.bool,
   component: PropTypes.oneOf(["favorites", "cart"])
 };
